@@ -1,0 +1,77 @@
+---
+
+"$schema": http://json-schema.org/draft-04/schema#
+type: object
+properties:
+  services:
+    type: object
+    additionalProperties: false
+    properties:
+      adminer:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          name: { type: string }
+          service_name: { type: string }
+          service_url: { type: string }
+        required: [enabled, version, ram, service_name, service_url]
+
+      mongo:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram]
+
+      mysql:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          password: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram, root_password]
+
+      phpmyadmin:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          upload_max_filesize: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram, upload_max_filesize]
+
+      postgres:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          password: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram, password]
+
+      redis:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram]
+
+      sqlserver:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+          password: { type: string }
+          name: { type: string }
+        required: [enabled, version, ram, password, name]
