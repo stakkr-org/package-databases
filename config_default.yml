@@ -6,14 +6,14 @@ services:
     version: latest
     ram: 256M
     service_name: Adminer
-    service_url: http://{}
+    service_url: http://{} (works also in https)
   mongo:
     enabled: false
     version: latest
     ram: 1024M
   mysql:
     enabled: false
-    version: latest
+    version: 5
     ram: 1024M
     root_password: root
   phpmyadmin:
@@ -22,7 +22,7 @@ services:
     ram: 256M
     upload_max_filesize: 256M
     service_name: phpMyAdmin
-    service_url: http://{}
+    service_url: http://{} (works also in https)
   postgres:
     enabled: false
     version: latest
