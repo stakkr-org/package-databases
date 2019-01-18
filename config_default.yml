@@ -7,6 +7,10 @@ services:
     ram: 256M
     service_name: Adminer
     service_url: http://{} (works also in https)
+  memcached:
+    enabled: false
+    version: alpine
+    ram: 1024M
   mongo:
     enabled: false
     version: latest
