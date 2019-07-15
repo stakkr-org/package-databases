@@ -18,6 +18,15 @@ properties:
           service_url: { type: string }
         required: [enabled, version, ram, service_name, service_url]
 
+      memcached:
+        type: object
+        additionalProperties: false
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
+        required: [enabled, version, ram]
+
       mongo:
         type: object
         additionalProperties: false
