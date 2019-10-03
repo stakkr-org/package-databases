@@ -9,65 +9,77 @@ properties:
     properties:
       adminer:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
-          name: { type: string }
           service_name: { type: string }
           service_url: { type: string }
         required: [enabled, version, ram, service_name, service_url]
 
-      mongo:
+      memcached:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
-          name: { type: string }
+        required: [enabled, version, ram]
+
+      mongo:
+        type: object
+        additionalProperties: false
+        properties:
+          enabled: { type: boolean }
+          version: { type: [string, number] }
+          ram: { type: string }
         required: [enabled, version, ram]
 
       mysql:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
-          password: { type: string }
-          name: { type: string }
+          root_password: { type: string }
         required: [enabled, version, ram, root_password]
 
       phpmyadmin:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
           upload_max_filesize: { type: string }
-          name: { type: string }
+          service_name: { type: string }
+          service_url: { type: string }
         required: [enabled, version, ram, upload_max_filesize]
 
       postgres:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
           password: { type: string }
-          name: { type: string }
         required: [enabled, version, ram, password]
 
       redis:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
           ram: { type: string }
-          name: { type: string }
         required: [enabled, version, ram]
 
       sqlserver:
         type: object
+        additionalProperties: false
         properties:
           enabled: { type: boolean }
           version: { type: [string, number] }
