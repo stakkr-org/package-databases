@@ -10,4 +10,4 @@ services:
         mem_limit: ${DOCKER_MONGO_RAM:-1024M}
         networks: [stakkr]
         volumes:
-            - ${COMPOSE_BASE_DIR}/data/mongo:/data/db
+            - ${COMPOSE_BASE_DIR}/data/mongo:/data/db:delegated

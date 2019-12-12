@@ -13,5 +13,5 @@ services:
         mem_limit: ${DOCKER_POSTGRES_RAM:-1024M}
         networks: [stakkr]
         volumes:
-            - ${COMPOSE_BASE_DIR}/data/postgres:/var/lib/postgresql/data/pgdata:cached
-            - ${COMPOSE_BASE_DIR}/logs/postgres:/var/lib/postgresql/data/pg_log:cached
+            - ${COMPOSE_BASE_DIR}/data/postgres:/var/lib/postgresql/data/pgdata:delegated
+            - ${COMPOSE_BASE_DIR}/logs/postgres:/var/lib/postgresql/data/pg_log:delegated
