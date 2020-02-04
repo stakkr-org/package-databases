@@ -5,7 +5,7 @@ services:
     enabled: false
     ram: 256M
     service_name: Adminer
-    service_url: http://{} (works also in https)
+    service_url: https://{}
     version: latest
   memcached:
     enabled: false
@@ -24,7 +24,7 @@ services:
     enabled: false
     ram: 256M
     service_name: phpMyAdmin
-    service_url: http://{} (works also in https)
+    service_url: https://{}
     upload_max_filesize: 256M
     version: latest
   postgres:

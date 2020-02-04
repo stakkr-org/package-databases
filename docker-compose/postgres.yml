@@ -1,17 +1,15 @@
-version: '2.2'
+version: "3.8"
 
 services:
-    postgres:
-        container_name: ${COMPOSE_PROJECT_NAME}_postgres
-        environment:
-            POSTGRES_PASSWORD: ${DOCKER_POSTGRES_PASSWORD:-postgres}
-            PGDATA: /var/lib/postgresql/data/pgdata
-        hostname: ${COMPOSE_PROJECT_NAME}_postgres
-        image: postgres:${DOCKER_POSTGRES_VERSION:-latest}
-        labels:
-            - traefik.enable=False
-        mem_limit: ${DOCKER_POSTGRES_RAM:-1024M}
-        networks: [stakkr]
-        volumes:
-            - ${COMPOSE_BASE_DIR}/data/postgres:/var/lib/postgresql/data/pgdata:delegated
-            - ${COMPOSE_BASE_DIR}/logs/postgres:/var/lib/postgresql/data/pg_log:delegated
+  postgres:
+    container_name: ${COMPOSE_PROJECT_NAME}_postgres
+    environment:
+      POSTGRES_PASSWORD: ${DOCKER_POSTGRES_PASSWORD:-postgres}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    hostname: ${COMPOSE_PROJECT_NAME}_postgres
+    image: postgres:${DOCKER_POSTGRES_VERSION:-latest}
+    mem_limit: ${DOCKER_POSTGRES_RAM:-1024M}
+    networks: [stakkr]
+    volumes:
+      - ${COMPOSE_BASE_DIR}/data/postgres:/var/lib/postgresql/data/pgdata:delegated
+      - ${COMPOSE_BASE_DIR}/logs/postgres:/var/lib/postgresql/data/pg_log:delegated

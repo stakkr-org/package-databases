@@ -1,11 +1,9 @@
-version: '2.2'
+version: "3.8"
 
 services:
-    memcached:
-        image: memcached:${DOCKER_MEMCACHED_VERSION}
-        mem_limit: ${DOCKER_MEMCACHED_RAM}
-        container_name: ${COMPOSE_PROJECT_NAME}_memcached
-        hostname: ${COMPOSE_PROJECT_NAME}_memcached
-        networks: [stakkr]
-        labels:
-            - traefik.enable=False
+  memcached:
+    image: memcached:${DOCKER_MEMCACHED_VERSION}
+    mem_limit: ${DOCKER_MEMCACHED_RAM}
+    container_name: ${COMPOSE_PROJECT_NAME}_memcached
+    hostname: ${COMPOSE_PROJECT_NAME}_memcached
+    networks: [stakkr]

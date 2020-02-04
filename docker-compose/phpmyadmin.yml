@@ -1,17 +1,20 @@
-version: '2.2'
+version: "3.8"
 
 services:
-    phpmyadmin:
-        container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
-        environment:
-            PMA_USER: root
-            PMA_HOST: mysql
-            PMA_PASSWORD: ${DOCKER_MYSQL_ROOT_PASSWORD:-root}
-            PHP_UPLOAD_MAX_FILESIZE: ${DOCKER_PHPMYADMIN_UPLOAD_MAX_FILESIZE:-256M}
-            #PMA_ARBITRARY: 1
-        hostname: ${COMPOSE_PROJECT_NAME}_phpmyadmin
-        image: phpmyadmin/phpmyadmin:${DOCKER_PHPMYADMIN_VERSION:-latest}
-        labels:
-            - traefik.frontend.rule=Host:phpmyadmin.${COMPOSE_PROJECT_NAME}.${PROXY_DOMAIN}
-        mem_limit: ${DOCKER_PHPMYADMIN_RAM:-256M}
-        networks: [stakkr]
+  phpmyadmin:
+    container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+    environment:
+      PMA_USER: root
+      PMA_HOST: mysql
+      PMA_PASSWORD: ${DOCKER_MYSQL_ROOT_PASSWORD:-root}
+      PHP_UPLOAD_MAX_FILESIZE: ${DOCKER_PHPMYADMIN_UPLOAD_MAX_FILESIZE:-256M}
+      #PMA_ARBITRARY: 1
+    hostname: ${COMPOSE_PROJECT_NAME}_phpmyadmin
+    image: phpmyadmin/phpmyadmin:${DOCKER_PHPMYADMIN_VERSION:-latest}
+    labels:
+      traefik.enable: "true"
+      traefik.http.services.phpmyadmin.loadbalancer.server.port: 80
+      traefik.http.routers.phpmyadmin.tls: "true"
+      traefik.http.routers.phpmyadmin.rule: "Host(`phpmyadmin.${COMPOSE_PROJECT_NAME}.${PROXY_DOMAIN}`)"
+    mem_limit: ${DOCKER_PHPMYADMIN_RAM:-256M}
+    networks: [stakkr]
