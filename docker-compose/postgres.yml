@@ -9,7 +9,7 @@ services:
         hostname: ${COMPOSE_PROJECT_NAME}_postgres
         image: postgres:${DOCKER_POSTGRES_VERSION:-latest}
         labels:
-            - traefik.enable=False
+            traefik.enable: False
         mem_limit: ${DOCKER_POSTGRES_RAM:-1024M}
         networks: [stakkr]
         volumes:
